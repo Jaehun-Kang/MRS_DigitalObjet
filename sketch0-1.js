@@ -35,7 +35,7 @@ function setSize() {
   sr = minRad * 0.9;
   mr = minRad * 0.75;
   hr = minRad * 0.6;
-  fs = constrain(min(windowWidth, windowHeight) * 0.0125, 12, 18);
+  fs = constrain(min(windowWidth, windowHeight) * 0.0125, 14, 18);
 }
 
 function time() {

@@ -35,7 +35,7 @@ function setSize() {
   sr = minRad * 0.9;
   mr = minRad * 0.75;
   hr = minRad * 0.6;
-  fs = min(windowWidth, windowHeight) * 0.0125;
+  fs = constrain(min(windowWidth, windowHeight) * 0.0125, 12, 18);
 }
 
 function time() {
@@ -183,8 +183,8 @@ let speed; // lerp speed
 let angCF, angCH, angCM, angCS; // angles from center
 
 function label() {
-  offsetS = 26;
-  offsetC = 40;
+  offsetS = fs * 2;
+  offsetC = fs * 2;
   gap = fs * 2.25;
   speed = 0.15;
   angCF = atan2(front[1] - center[1], front[0] - center[0]);
@@ -195,7 +195,6 @@ function label() {
   noStroke();
   textSize(fs);
   textAlign(CENTER, CENTER);
-  console.log(min(windowWidth, windowHeight));
 
   push();
   if (angSum >= 359.99) {
@@ -215,15 +214,15 @@ function label() {
     targetTxt = { x: cos(angCF) * offsetC, y: sin(angCF) * offsetC };
 
     if (center[0] > 0) {
+      // left
       targetH = { x: targetTxt.x - gap * 2, y: targetTxt.y };
       targetM = { x: targetTxt.x - gap, y: targetTxt.y };
       targetS = { x: targetTxt.x, y: targetTxt.y };
-      console.log("좌");
     } else {
+      // right
       targetH = { x: targetTxt.x, y: targetTxt.y };
       targetM = { x: targetTxt.x + gap, y: targetTxt.y };
       targetS = { x: targetTxt.x + gap * 2, y: targetTxt.y };
-      console.log("우");
     }
   }
 

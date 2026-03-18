@@ -24,18 +24,21 @@ function windowResized() {
 }
 
 function draw() {
-  background(0, 0, 0);
+  background(0, 0, 0.05);
   grid();
   time();
   cube();
 }
 
 function setSize() {
-  minRad = min(windowWidth, windowHeight) * 0.5;
-  sr = minRad * 0.9;
-  mr = minRad * 0.75;
-  hr = minRad * 0.6;
-  fs = constrain(min(windowWidth, windowHeight) * 0.0125, 14, 18);
+  minRad = min(width, height) * 0.5;
+  // sr = minRad * 0.9;
+  // mr = minRad * 0.75;
+  // hr = minRad * 0.6;
+  sr = minRad * 1;
+  mr = minRad * 1;
+  hr = minRad * 1;
+  fs = constrain(min(width, height) * 0.0125, 14, 24);
 }
 
 function time() {
@@ -85,8 +88,8 @@ function cube() {
 
   push();
   translate(
-    (front[0] - rear[0]) * 0.5 + windowWidth * 0.5,
-    (front[1] - rear[1]) * 0.5 + windowHeight * 0.5,
+    (front[0] - rear[0]) * 0.5 + width * 0.5,
+    (front[1] - rear[1]) * 0.5 + height * 0.5,
   );
 
   // front faces
@@ -263,13 +266,13 @@ function angleSum() {
 function grid() {
   stroke(0, 0, 0.3);
   strokeWeight(1);
-  let gridSize = 50;
+  let gridSize = min(width, height) * 0.05;
 
-  for (let i = -windowWidth; i < windowWidth; i += gridSize) {
-    line(i, -windowHeight, i, windowHeight);
+  for (let i = -0; i < width; i += gridSize) {
+    line(i, -height, i, height);
   }
 
-  for (let i = -windowHeight; i < windowHeight; i += gridSize) {
-    line(-windowWidth, i, windowWidth, i);
+  for (let i = -0; i < height; i += gridSize) {
+    line(-width, i, width, i);
   }
 }

@@ -33,7 +33,7 @@ function windowResized() {
 }
 
 function updateRadiusValues() {
-  const minDimension = min(windowWidth, windowHeight) * 0.04;
+  const minDimension = min(width, height) * 0.04;
   radius = minDimension;
   baseRad = minDimension;
 }
@@ -75,7 +75,7 @@ function draw() {
   mTxt = [...m, " ", "M", "I", "N", "U", "T", "E"];
   sTxt = [...s, " ", "S", "E", "C", "O", "N", "D"];
 
-  translate(windowWidth * 0.5, windowHeight * 0.5);
+  translate(width * 0.5, height * 0.5);
 
   let rad = baseRad;
   const secondMod = currentSecond % 10;

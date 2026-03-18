@@ -13,6 +13,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   angleMode(DEGREES);
   strokeJoin(BEVEL);
+  colorMode(HSB, 360, 1, 1, 1);
   textFont("Consolas, Courier New, monospace");
   textStyle(BOLD);
   setSize();
@@ -84,7 +85,6 @@ function cube() {
 
   strokeCap(SQUARE);
   rectMode(CENTER);
-  colorMode(HSB, 360, 1, 1, 1);
 
   push();
   translate(
@@ -164,7 +164,7 @@ function cube() {
 
 function lineRear() {
   strokeWeight(1);
-  stroke(0, 0, 1);
+  stroke(0, 0, 1, 0.66);
   line(...rear, ...rearH);
   line(...rear, ...rearM);
   line(...rear, ...rearS);
